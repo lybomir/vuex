@@ -1,17 +1,28 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>{{ title }}</h2>
+    <app-counter></app-counter>
+    <app-second-counter></app-second-counter>
+    <hr>
+    <app-actions></app-actions>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Counter from './Counter'
+import Actions from './Acrtions'
+import SecondCounter from './SeconCounter'
 export default {
-  name: 'app',
+  // name: 'app',
   components: {
-    HelloWorld
+    appCounter: Counter,
+    appActions: Actions,
+    appSecondCounter: SecondCounter
+  },
+  computed: {
+    title(){
+      return this.$store.getters.title
+    }
   }
 }
 </script>
